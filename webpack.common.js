@@ -4,11 +4,11 @@ const path = require('path')
 
 module.exports = {
   entry: {
-    main: './src/index.js',
+    main: path.join(__dirname, './client/src/index.js'),
   },
   output: {
-    filename: '[name].[hash].js',
-    path: path.resolve('./dist'),
+    filename: 'bundle.js',
+    path: path.join(__dirname, './client/dist'),
   },
   module: {
     rules: [
@@ -39,7 +39,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'index.html'
+      template: './client/index.html'
     }),
     new CleanWebpackPlugin()
   ]
